@@ -172,6 +172,9 @@ struct feat
     return featureNameCount;
   }
 
+  bool exposes_feature (hb_aat_layout_feature_type_t feature_type) const
+  { return &get_feature (feature_type) != &Null(AAT::FeatureName); }
+
   const FeatureName& get_feature (hb_aat_layout_feature_type_t feature_type) const
   { return namesZ.bsearch (featureNameCount, feature_type); }
 
